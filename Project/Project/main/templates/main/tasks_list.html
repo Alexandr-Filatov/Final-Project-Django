@@ -36,9 +36,9 @@
             {% for task in tasks_list %}
             <tbody>
                 <tr>
-                    <th scope="col"></th>
+                    <th scope="col">{{ task.task_number }}</th>
                     <td>{{ task }}</td>
-                    <td></td>
+                    <td>{{ task.description }}</td>
                     <td>{{ task.deadtime }}</td>
                     <td>{{ task.create_date }}</td>
                     <td><a class="btn btn-danger" href="http://127.0.0.1:8000/edit_task" role="button">Редактировать</a></td>
