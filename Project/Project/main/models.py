@@ -1,6 +1,7 @@
 import datetime
 
 from django.db import models
+#from .models import Post
 
 # Create your models here.
 class Task(models.Model):
@@ -13,3 +14,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+
+

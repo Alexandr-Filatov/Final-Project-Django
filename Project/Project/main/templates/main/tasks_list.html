@@ -10,26 +10,18 @@
 
 {% block body %}
 
-    {{ csrf_token }}
-    {{ form.title }}
-    {{ form.description }}
-    <thead>
-    <tr>
-        <th scope="col">#</th>
-        <th scope="col">Задача</th>
-        <th scope="col">Описание</th>
-        <th scope="col">Срок</th>
-    </tr>
-    </thead>
+
+
     {% if tasks_list %}
         <table class="table table-hover table-info">
             <thead>
-                <tr>
+                <tr class="table-dark">
                     <th scope="col">№</th>
-                    <th scope="col">Задача</th>
+                    <th scope="col">Название</th>
                     <th scope="col">Описание</th>
                     <th scope="col">Срок</th>
                     <th scope="col">Дата создания</th>
+                    <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,7 +33,8 @@
                     <td>{{ task.description }}</td>
                     <td>{{ task.deadtime }}</td>
                     <td>{{ task.create_date }}</td>
-                    <td><a class="btn btn-danger" href="http://127.0.0.1:8000/edit_task" role="button">Редактировать</a></td>
+                    <td><a class="btn btn-warning" href="http://127.0.0.1:8000/edit_task" role="button">Редактировать</a></td>
+                    <td><a class="btn btn-danger" href="" role="button">Удалить</a></td>
                 </tr>
             </tbody>
             {% endfor %}

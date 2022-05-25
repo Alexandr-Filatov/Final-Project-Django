@@ -12,10 +12,7 @@ def index(request):
 
 def tasks_list(request):
     tasks_list = Task.objects.all()
-    form = TaskForm()
-    context = {
-        'form': form
-    }
+
     return  render(request, 'main/tasks_list.html',
                    {
                     "title": "Список задач",
@@ -24,15 +21,22 @@ def tasks_list(request):
                     })
 
 def add_task(request):
-    form = TaskForm
-    task = Task.objects.all()
-    return render(request, 'main/add_task.html',
-                  {
-                      "title": "Новая задача",
-                      "header": "Новая задача",
-                      "task": task,
-                      "form": form
-                  })
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    #task = Task.objects.all()
+    form = TaskForm()
+    context = {
+        "form": form
+    }
+    return render(request, 'main/add_task.html', context)
+                  # {
+                  #     "title": "Новая задача",
+                  #     "header": "Новая задача"
+                  #     #"task": task
+                  # })
 
 def edit_task(request):
     return render(request, 'main/edit_task.html',
@@ -42,3 +46,7 @@ def edit_task(request):
 
 
                   })
+
+def delete_task(request):
+
+    return render(request, 'main/task_list')

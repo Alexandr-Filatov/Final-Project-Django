@@ -10,18 +10,30 @@
 
 {% block body %}
 <form method="post">
+    {% csrf_token %}
 
-</form>
-<form>
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Задача</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label  class="form-label">Название</label>
   </div>
+  {{ form.title }}
+
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Описание задачи</label>
-    <input type="text" class="form-control" id="exampleInputPassword1">
+    <label  class="form-label">Описание задачи</label>
+  </div>
+  {{ form.description }}
+
+  <div class="mb-3">
+    <label  class="form-label">Срок выполнения</label>
+  </div>
+  {{ form.deadtime }}
+
+  <div>
+
   </div>
 
-  <button type="submit" class="btn btn-primary">Добавить</button>
+  <div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+    <a class="btn btn-danger" href="http://127.0.0.1:8000/tasks_list" role="button">Назад</a>
+  </div>
 </form>
 {% endblock %}
